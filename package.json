@@ -1,0 +1,28 @@
+{
+  "name": "concorda-client",
+  "version": "0.0.1",
+  "description": "Concorda's plugin for client applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nearform/concorda-client.git"
+  },
+  "keywords": [
+    "concorda",
+    "plugin",
+    "seneca"
+  ],
+  "author": "Mircea Alexandru (http://alexandrumircea.ro)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nearform/concorda-client/issues"
+  },
+  "homepage": "https://github.com/nearform/concorda-client#readme",
+  "dependencies": {
+    "seneca-auth": "1.0.x",
+    "seneca-mesh": "0.5.x"
+  }
+}
