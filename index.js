@@ -1,7 +1,23 @@
 'use strict'
 
-module.exports = function (options) {
+const _ = require('lodash')
+const defaultOptions = {
+  concordaProtocol: 'http',
+  concordaHost: 'localhost',
+  concordaPort: 3050,
+  protocol: 'http',
+  host: 'localhost',
+  port: 3000
+}
+
+module.exports = function (opts) {
   var seneca = this
+
+  const options = _.extend(
+    {},
+    defaultOptions,
+    opts
+  )
 
   var name = 'concorda-client'
 
@@ -9,14 +25,13 @@ module.exports = function (options) {
     .use('auth', {restrict: '/api'})
     .use('mesh', {auto: true})
 
-
   function redirectGoogle(args, done){
     return done(
       null,
       {
         http$:
         {
-          redirect: 'http://localhost:3050/auth/google?callback_url=http://localhost:3000'
+          redirect: `${options.concordaProtocol}://${options.concordaHost}:${options.concordaPort}/auth/google?callback_url=${options.protocol}://${options.host}:${options.port}`
         }
       }
     )
