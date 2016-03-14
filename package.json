@@ -1,6 +1,6 @@
 {
   "name": "concorda-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Concorda's plugin for client applications",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,12 @@
     "concorda",
     "plugin",
     "seneca"
+  ],
+  "files": [
+    "index.js",
+    "lib",
+    "Readme.md",
+    "package.json"
   ],
   "author": {
     "name" : "Mircea Alexandru",
