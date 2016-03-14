@@ -2,12 +2,18 @@
 
 const _ = require('lodash')
 const defaultOptions = {
-  concordaProtocol: 'http',
-  concordaHost: 'localhost',
-  concordaPort: 3050,
-  protocol: 'http',
-  host: 'localhost',
-  port: 3000
+  concorda: {
+    protocol: process.env.CONCORDA_PROTOCOL || 'http',
+    host: process.env.CONCORDA_HOST || 'localhost',
+    port: process.env.CONCORDA_PORT || 3050,
+  },
+  client: {
+    protocol: process.env.PROTOCOL || 'http',
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || 3000,
+    key: process.env.CLIENT_KEY
+  },
+  restrict: '/api'
 }
 
 module.exports = function (opts) {
@@ -22,7 +28,7 @@ module.exports = function (opts) {
   var name = 'concorda-client'
 
   seneca
-    .use('auth', {restrict: '/api'})
+    .use('auth', options)
     .use('mesh', {auto: true})
 
   function redirectGoogle(args, done){
@@ -31,7 +37,7 @@ module.exports = function (opts) {
       {
         http$:
         {
-          redirect: `${options.concordaProtocol}://${options.concordaHost}:${options.concordaPort}/auth/google?callback_url=${options.protocol}://${options.host}:${options.port}`
+          redirect: `${options.concorda.protocol}://${options.concorda.host}:${options.concorda.port}/auth/google?callback_url=${options.client.protocol}://${options.client.host}:${options.client.port}`
         }
       }
     )
