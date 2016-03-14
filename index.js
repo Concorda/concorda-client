@@ -1,5 +1,9 @@
 'use strict'
 
+const Auth = require('seneca-auth')
+const Redirect = require('./lib/redirect.js')
+const Mesh = require('seneca-mesh')
+
 const _ = require('lodash')
 const defaultOptions = {
   concorda: {
@@ -11,7 +15,7 @@ const defaultOptions = {
     protocol: process.env.PROTOCOL || 'http',
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
-    key: process.env.CLIENT_KEY
+    key: process.env.CLIENT_KEY || 'not-available'
   },
   restrict: '/api'
 }
@@ -28,8 +32,9 @@ module.exports = function (opts) {
   var name = 'concorda-client'
 
   seneca
-    .use('auth', options)
-    .use('mesh', {auto: true})
+    .use(Auth, options)
+    .use(Redirect, options)
+    .use(Mesh, {auto: true})
 
   function redirectGoogle(args, done){
     return done(
