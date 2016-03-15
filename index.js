@@ -33,7 +33,7 @@ module.exports = function (opts) {
 
   seneca
     .use(Auth, options)
-    .use(Redirect, options)
+//    .use(Redirect, options)
     .use(Mesh, {auto: true})
 
   function redirectGoogle(args, done){
