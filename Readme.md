@@ -13,6 +13,32 @@ A detailed documentation can be found in [Concorda wiki](https://github.com/near
 The [Concorda][] encourages open participation. If you feel you can help in any way, be it with
 documentation, examples, extra testing, or new features please get in touch.
 
+# Using Concorda client
+
+Use it like any other seneca plugin
+
+```
+npm install concorda-client --save
+```
+
+```
+  seneca
+    .use(ConcordaClient, {
+        mesh: {
+          active: true
+        },
+        transport: {
+          active: true,
+          type: 'tcp'
+        },
+        auth: {
+          restrict: '/api',
+          password: process.env.COOKIE_PASSWORD || 'some password with lenght grater than 32'
+        }
+      }
+    )
+```
+
 - [Code of Conduct]
 
 # License
