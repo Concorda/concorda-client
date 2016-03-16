@@ -19,6 +19,14 @@ const defaultOptions = {
   },
   auth: {
     restrict: '/api'
+  },
+  transport: {
+    active: false,
+    type: 'tcp'
+  },
+  mesh: {
+    active: false,
+    auto: true
   }
 }
 
