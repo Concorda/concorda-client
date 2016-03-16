@@ -17,7 +17,9 @@ const defaultOptions = {
     port: process.env.PORT || 3000,
     key: process.env.CLIENT_KEY || 'not-available'
   },
-  restrict: '/api'
+  auth: {
+    restrict: '/api'
+  }
 }
 
 module.exports = function (opts) {
@@ -32,9 +34,18 @@ module.exports = function (opts) {
   var name = 'concorda-client'
 
   seneca
-    .use(Auth, options)
-    .use(Redirect, options)
-    .use(Mesh, {auto: true})
+    .use(Auth, options.auth)
+//    .use(Redirect, options)
+  if (options.mesh && options.mesh.active) {
+    seneca.log.info('Use mesh communication', options.mesh)
+    seneca
+      .use(Mesh, {auto: true})
+  }
+  if (options.transport && options.transport.active) {
+    seneca.log.info('Use transport communication', options.transport)
+    seneca
+      .client(options.transport)
+  }
 
   function redirectGoogle(args, done){
     return done(
