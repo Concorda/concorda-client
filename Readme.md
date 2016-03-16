@@ -33,7 +33,7 @@ npm install concorda-client --save
         },
         auth: {
           restrict: '/api',
-          password: process.env.COOKIE_PASSWORD || 'some password with lenght grater than 32'
+          password: 'some password with lenght grater than 32'
         }
       }
     )
