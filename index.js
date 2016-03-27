@@ -15,7 +15,7 @@ const defaultOptions = {
     protocol: process.env.PROTOCOL || 'http',
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
-    key: process.env.CLIENT_KEY || 'not-available'
+    appkey: process.env.CLIENT_KEY || 'not-available'
   },
   auth: {
     restrict: '/api'
@@ -43,7 +43,7 @@ module.exports = function (opts) {
 
   seneca
     .use(Auth, options.auth)
-//    .use(Redirect, options)
+    .use(Redirect, options)
   if (options.mesh.active === true || options.mesh.active === 'true') {
     seneca.log.info('Use mesh communication', options.mesh)
     seneca
