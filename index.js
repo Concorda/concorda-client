@@ -67,8 +67,13 @@ module.exports = function (opts) {
     )
   }
 
+  function localPing(msg, response){
+    this.act('role: concorda-communication, cmd: ping', response)
+  }
+
   seneca
     .add('role: concorda, cmd: redirectGoogle', redirectGoogle)
+    .add('role: concorda, cmd: localPing', localPing)
 
   seneca.act({
     role: 'web', use: {
@@ -77,6 +82,17 @@ module.exports = function (opts) {
       pin: {role: 'concorda', cmd: '*'},
       map: {
         redirectGoogle: {GET: true, alias: 'google'}
+      }
+    }
+  })
+
+  seneca.act({
+    role: 'web', use: {
+      name: 'concorda',
+      prefix: '/concorda',
+      pin: {role: 'concorda', cmd: '*'},
+      map: {
+        localPing: {GET: true, alias: 'ping'}
       }
     }
   })
