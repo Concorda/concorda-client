@@ -43,17 +43,21 @@ module.exports = function (opts) {
 
   seneca
     .use(Auth, options.auth)
-    .use(Redirect, options)
-  if (options.mesh.active === true || options.mesh.active === 'true') {
-    seneca.log.info('Use mesh communication', options.mesh)
+
+  seneca.ready(function() {
     seneca
-      .use(Mesh, {auto: true})
-  }
-  if (options.transport.active === true || options.transport.active === 'true') {
-    seneca.log.info('Use transport communication', options.transport)
-    seneca
-      .client(options.transport)
-  }
+      .use(Redirect, options)
+    if (options.mesh.active === true || options.mesh.active === 'true') {
+      seneca.log.info('Use mesh communication', options.mesh)
+      seneca
+        .use(Mesh, {auto: true})
+    }
+    if (options.transport.active === true || options.transport.active === 'true') {
+      seneca.log.info('Use transport communication', options.transport)
+      seneca
+        .client(options.transport)
+    }
+  })
 
   function redirectGoogle(args, done){
     return done(
