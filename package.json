@@ -1,6 +1,6 @@
 {
   "name": "concorda-client",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "Concorda's plugin for client applications",
   "main": "index.js",
   "scripts": {
