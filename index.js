@@ -18,7 +18,8 @@ const defaultOptions = {
     appkey: process.env.CLIENT_KEY || 'not-available'
   },
   auth: {
-    restrict: '/api'
+    restrict: '/api',
+    password: process.env.COOKIE_PASSWORD || '12323433234ffdfrdssadfhsamqwr098yrd09r8mhmf9q84mfxkwedorgno438drn8473nd,mnjbrk'
   },
   transport: {
     active: false,
