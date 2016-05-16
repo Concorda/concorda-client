@@ -1,5 +1,5 @@
 {
-  "name": "concorda-client",
+  "name": "seneca-concorda",
   "version": "0.2.0",
   "description": "Concorda's plugin for client applications",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nearform/concorda-client.git"
+    "url": "git+https://github.com/nearform/seneca-concorda.git"
   },
   "keywords": [
     "concorda",
@@ -28,9 +28,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nearform/concorda-client/issues"
+    "url": "https://github.com/nearform/seneca-concorda/issues"
   },
-  "homepage": "https://github.com/nearform/concorda-client#readme",
+  "homepage": "https://github.com/nearform/seneca-concorda#readme",
   "dependencies": {
     "lodash": "4.6.1",
     "seneca-auth": "1.0.x",
