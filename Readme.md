@@ -1,3 +1,7 @@
+## Project Status
+
+This project has been renamed to [seneca-concorda][seneca-concorda].
+
 ![Banner][]
 
 # Concorda Plugin for client application
@@ -52,4 +56,5 @@ Licensed under [MIT][].
 [Concorda]: https://github.com/nearform/concorda
 [lead]: https://github.com/mirceaalexandru
 [nearForm]: http://www.nearform.com/
+[seneca-concorda]: https://github.com/Concorda/seneca-concorda
 [NodeZoo]: http://www.nodezoo.com/
