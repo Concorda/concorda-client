@@ -1,6 +1,6 @@
 {
   "name": "seneca-concorda",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Concorda's plugin for client applications",
   "main": "index.js",
   "scripts": {
