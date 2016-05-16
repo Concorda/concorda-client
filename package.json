@@ -1,6 +1,6 @@
 {
   "name": "concorda-client",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Concorda's plugin for client applications",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,9 @@
     "package.json"
   ],
   "author": {
-    "name" : "Mircea Alexandru",
-    "email" : "mircea.alexandru@gmail.com",
-    "url" : "http://alexandrumircea.ro"
+    "name": "Mircea Alexandru",
+    "email": "mircea.alexandru@gmail.com",
+    "url": "http://alexandrumircea.ro"
   },
   "license": "MIT",
   "bugs": {
